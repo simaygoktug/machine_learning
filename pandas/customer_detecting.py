@@ -5,7 +5,7 @@ def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFram
     orders_df=pd.DataFrame(orders)
 
     result_df = customers_df.merge(orders_df, how='left', left_on='id', right_on='customerId')
-    result_df = result_df[result_df['id_y'].isnull()]  
+    result_df = result_df[result_df['customerId'].isnull()]  
     result_df = result_df[['name']]  
     result_df.columns = ['Customers']  
 
